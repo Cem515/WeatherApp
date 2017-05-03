@@ -9,9 +9,9 @@
 
     /* @ngInject */
     function CityFactory($http, $q) {
-        var service = {
+      /*  var service = {
           getCity= getCity()
-        ;
+        };*/
 
         return service;
 
