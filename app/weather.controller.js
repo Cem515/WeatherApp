@@ -16,12 +16,10 @@
 
         function activate() {
           if(response.status ==200) {
-          CityFactory.getLocations().then(function(response)
-
-          toastr.success("City Found Successfully");
-          return response
-        } else {
-          toastr.error("Error Searchng for City")
+          CityFactory.getLocations().then(function(response){
+          toastr.success("City Identified");
+        }) else {
+          toastr.error("Error Searching for City");
         }
 
     }
