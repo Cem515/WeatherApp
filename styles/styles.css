@@ -1,0 +1,11 @@
+#recents {
+  padding:inherit;
+}
+
+#pastSearched {
+  float: right;
+}
+
+#citySearched {
+float:left;
+}

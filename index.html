@@ -1,24 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
+
 <head>
   <meta charset="UTF-8">
   <title>Global Weather</title>
-<!-- bower:css -->
-<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-<!-- endbower -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="styles/styles.css">
+  <!-- endbower -->
 
-<!-- inject:css -->
-<!-- endinject -->
+  <!-- inject:css -->
+  <!-- endinject -->
 </head>
+<div id="recents">
 
-<body>
-<!-- bower:js -->
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<!-- endbower -->
-<h1>HEYA</h1>
-<!-- inject:js -->
-<script src="/app/app.js"></script>
-<!-- endinject -->
-</body>
+  <body ng-controller="WeatherController as vm">
+    <h1> Current Weather</h1>
+
+    <div class="btn-group">
+      <button type="button" class="btn btn-info">Recent City #1</button>
+      <button type="button" class="btn btn-info">Recent City #1</button>
+      <button type="button" class="btn btn-info">Recent City #1</button>
+    </div>
+
+    <form class="form-inline">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Enter City Name">
+        <button type="submit" class="btn btn-primary">Find Weather</button>
+    </form>
+    </div>
+    <div id="pastSearched">
+      <form class="form-horizontal">
+        <table class="table table-hover">
+          <tr>
+            <th>Recent City Searched
+              <th> Time Searched
+          </tr>
+          <tr>
+            <th>City
+              <th> Time
+          </tr>
+          <tr>
+            <th>Recent1
+              <th> Time1
+          </tr>
+          <tr>
+            <th>Recent2
+              <th> Time2
+          </tr>
+          <tr>
+            <th>Recent3
+              <th> Time3
+          </tr>
+          <tr>
+            <th>Recent4
+              <th> Time4
+          </tr>
+        </table>
+      </form>
+    </div>
+    <div class="form-group" id="cityOutput">
+      <form class="form-horizontal">
+        <table class="table table-hover">
+          <h3 class="form-control-static">City Searched</h3>
+    </div>
+    <div class="form-group">
+      <tr>
+        <th>Temperature(F)</th>
+        <th> [InsertTemp]</th>
+      </tr>
+      <tr>
+        <th>Pressure</th>
+        <th> [Pressure]</th>
+      </tr>
+      <tr>
+        <th>Humidity</th>
+        <th> [InsertHumidity]</th>
+      </tr>
+      <tr>
+        <th>Lowest Temp(F)</th>
+        <th> [InsertLowTemp]</th>
+      </tr>
+      <tr>
+        <th>Highest Temp (F)</th>
+        <th> [InsertHighTemp]</th>
+      </tr>
+      <tr>
+        <th>Wind Speeds</th>
+        <th> [InsertWindSpeed]</th>
+      </tr>
+    </table>
+        </form>
+    </div>
+
+
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <!-- endbower -->
+
+    <!-- inject:js -->
+    <script src="/app/app.js"></script>
+    <!-- endinject -->
+  </body>
+
 </html>
