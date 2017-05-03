@@ -11,18 +11,18 @@
     /* @ngInject */
     function WeatherController(CityFactory,toastr) {
         var vm = this;
-        vm.city="";
+        vm.citySelect="";
         activate();
-/*
+
         function activate() {
           if(response.status ==200) {
           CityFactory.getLocations().then(function(response)
-         vm.city=response.data;
+
           toastr.success("City Found Successfully");
           return response
         } else {
           toastr.error("Error Searchng for City")
         }
-        */
+
     }
 })();

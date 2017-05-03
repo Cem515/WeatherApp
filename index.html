@@ -6,6 +6,7 @@
   <title>Global Weather</title>
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
   <!-- endbower -->
 
   <!-- inject:css -->
@@ -19,13 +20,13 @@
 
     <div class="btn-group">
       <button type="button" class="btn btn-info">Recent City #1</button>
-      <button type="button" class="btn btn-info">Recent City #1</button>
-      <button type="button" class="btn btn-info">Recent City #1</button>
+      <button type="button" class="btn btn-info">Recent City #2</button>
+      <button type="button" class="btn btn-info">Recent City #3</button>
     </div>
 
     <form class="form-inline">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Enter City Name">
+        <input type="text" class="form-control" placeholder="Enter City Name" ng-model="vm.citySelect">
         <button type="submit" class="btn btn-primary">Find Weather</button>
     </form>
     </div>
@@ -98,6 +99,7 @@
     <!-- bower:js -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
     <!-- endbower -->
 
     <!-- inject:js -->

@@ -9,7 +9,7 @@ var gulp = require('gulp'),
 var jsSources = ['app/*.js'],
     cssSources = ['app/**/*.css'],
     htmlSources = ['**/*.html'];
-
+ 
 
 // Watch
 gulp.task('watch', function() {
