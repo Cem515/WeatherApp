@@ -22,11 +22,12 @@
         <form class="form-inline">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Enter City Name" ng-model="weatherCtrl.citySelect">
-            <button type="submit" class="btn btn-primary">Find Weather</button>
+            <button type="submit" class="btn btn-primary" ng-click="weatherCtrl.citySearch(weatherCtrl.citySelect)">Find Weather</button>
         </form>
         </div>
       </div>
 
+      <p ng-model="weatherCtrl.Weather">{{weatherCtrl.Weather}}</p>
 
       <div class="btn-group">
         <button type="button" class="btn btn-info">Recent City #1</button>
