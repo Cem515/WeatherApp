@@ -3,7 +3,7 @@
 
     angular
         .module('app')
-        .controller('WeatherController', WeatherController)
+        .controller('WeatherController', WeatherController);
 
     WeatherController.$inject = ['CityFactory','toastr'];
 

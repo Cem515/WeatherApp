@@ -3,8 +3,8 @@
     'use strict';
 
     angular
-        .module('app',['toastr'])
-        .factory('CityFactory', CityFactory)
+        .module('app')
+        .factory('CityFactory', CityFactory);
 
     CityFactory.$inject = ['$http'];
 
