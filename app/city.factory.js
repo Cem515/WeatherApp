@@ -10,7 +10,7 @@
     /* @ngInject */
     function CityFactory($http, $q) {
       vm.citySelect = '';
-      var city = vm.citySelecy
+      var city = vm.citySelect
 
       return service;
 
@@ -34,13 +34,7 @@
 
           defer.reject(response);
 
-        })
-      }
-
-      function(error) {
-        defer.reject(error);
-
-      });
+        });
 
     return defer.promise
 
