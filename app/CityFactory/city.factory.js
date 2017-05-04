@@ -6,9 +6,10 @@
         .module('app')
         .factory('CityFactory', CityFactory);
 
-    CityFactory.$inject = ['$http'];
+    CityFactory.$inject = ['$http','$q'];
 
-    function CityFactory($http) {
+    function CityFactory($http,$q) {
+        let city = weatherCtrl.citySelect;
         var service = {
             citySearch: citySearch,
 
@@ -18,7 +19,9 @@
 
         function citySearch(city) {
 
-            return $http({
+            var defer=$q.defer();
+
+             $http({
                 method: "GET",
                 URL: 'api.openweathermap.org/data/2.5/weather?q=',
                 params: {
@@ -28,13 +31,15 @@
                 }
             }).then(function (response) {
 
-                return response;
+               defer.resolve(response);
 
             }, function (error) {
 
-                return error
+                defer.reject(error);
                 
             })
+
+            return defer.promise;
         }
     }
 })();
