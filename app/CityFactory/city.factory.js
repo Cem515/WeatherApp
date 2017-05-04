@@ -1,13 +1,14 @@
+
 (function () {
     'use strict';
 
     angular
-        .module('app')
+        .module('app',['toastr'])
         .factory('CityFactory', CityFactory)
 
-    CityFactory.$inject = ['$http','$q'];
+    CityFactory.$inject = ['$http'];
 
-    function CityFactory($http,$q) {
+    function CityFactory($http) {
         var service = {
             citySearch: citySearch,
 
@@ -17,8 +18,7 @@
 
         function citySearch(city) {
 
-            var defer = $q.defer();
-             $http({
+            return $http({
                 method: "GET",
                 URL: 'api.openweathermap.org/data/2.5/weather?q=',
                 params: {
@@ -28,15 +28,13 @@
                 }
             }).then(function (response) {
 
-                defer.resolve(response);
+                return response;
 
             }, function (error) {
 
-                defer.reject(error)
+                return error
                 
             })
-
-            return defer.promise;
         }
     }
 })();
