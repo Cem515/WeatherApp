@@ -15,20 +15,26 @@
 </head>
 <div id="recents">
 
-  <body ng-controller="WeatherController as vm">
-    <h1> Current Weather</h1>
+  <body ng-controller="WeatherController as weatherCtrl">
+    <div class="container">
+      <div class="jumbotron">
+        <h1> Current Weather</h1>
+        <form class="form-inline">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter City Name" ng-model="weatherCtrl.citySelect">
+            <button type="submit" class="btn btn-primary">Find Weather</button>
+        </form>
+        </div>
+      </div>
 
-    <div class="btn-group">
-      <button type="button" class="btn btn-info">Recent City #1</button>
-      <button type="button" class="btn btn-info">Recent City #2</button>
-      <button type="button" class="btn btn-info">Recent City #3</button>
-    </div>
 
-    <form class="form-inline">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Enter City Name" ng-model="vm.citySelect">
-        <button type="submit" class="btn btn-primary">Find Weather</button>
-    </form>
+      <div class="btn-group">
+        <button type="button" class="btn btn-info">Recent City #1</button>
+        <button type="button" class="btn btn-info">Recent City #2</button>
+        <button type="button" class="btn btn-info">Recent City #3</button>
+      </div>
+
+
     </div>
     <div class="form-group" id="cityOutput">
       <form class="form-horizontal">
@@ -60,35 +66,35 @@
         <th>Wind Speeds</th>
         <th> [InsertWindSpeed]</th>
       </tr>
-    </table>
-        </form>
+      </table>
+      </form>
     </div>
     <div id="pastSearched">
       <form class="form-horizontal">
         <table class="table table-hover">
           <tr>
             <th>Recent City Searched
-            <th> Time Searched
+              <th> Time Searched
           </tr>
           <tr>
             <th>City
-            <th> Time
+              <th> Time
           </tr>
           <tr>
             <th>Recent1
-            <th> Time1
+              <th> Time1
           </tr>
           <tr>
             <th>Recent2
-            <th> Time2
+              <th> Time2
           </tr>
           <tr>
             <th>Recent3
-            <th> Time3
+              <th> Time3
           </tr>
           <tr>
             <th>Recent4
-            <th> Time4
+              <th> Time4
           </tr>
         </table>
       </form>
@@ -104,8 +110,6 @@
 
     <!-- inject:js -->
     <script src="/app/app.js"></script>
-    <script src="/app/city.factory.js"></script>
-    <script src="/app/weather.controller.js"></script>
     <!-- endinject -->
   </body>
 

@@ -1,32 +1,23 @@
-(function() {
+(function () {
     'use strict';
 
-    angular
-        .module('app', ['toastr']);
+    angular.module('app', []);
 })();
-
-(function() {
+(function(){
     'use strict';
 
     angular
         .module('app')
-        .controller('WeatherController', WeatherController);
+        .controller('WeatherController', WeatherController)
 
-    WeatherController.$inject = ['CityFactory', 'toastr'];
+    WeatherController.$inject = ['$http'];
 
-    /* @ngInject */
-    function WeatherController(CityFactory,toastr) {
+    function WeatherController($http) {
+        /* jshint validthis:true */
         var vm = this;
-        vm.citySelect="";
+
         activate();
 
-        function activate() {
-          if(response.status ==200) {
-          CityFactory.getLocations().then(function(response){
-          toastr.success("City Identified");
-        }) else {
-          toastr.error("Error Searching for City");
-        }
-
+        function activate() { }
     }
 })();
