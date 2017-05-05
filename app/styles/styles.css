@@ -1,17 +1,9 @@
-#recents {
-  padding:inherit;
-}
-
-#pastSearched {
+#recents{
   float: right;
+
 }
 
-#citySearched {
-float:left;
-}
+#searched {
 
-.container {
-padding: 50px;
-
-
+  float:left;
 }

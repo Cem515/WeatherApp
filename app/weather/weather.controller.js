@@ -9,16 +9,16 @@
 
     function WeatherController(CityFactory) {
         /* jshint validthis:true */
-        var vm = this;
-        vm.title = 'CityFactory';
+        var weatherCtrl = this;
+        weatherCtrl.title = 'CityFactory';
         weatherCtrl.citySelect="";
-        vm.citySelect = citySelect;
+        let citySelect = weatherCtrl.citySelect;
 
         weatherCtrl.citySearch = function(citySelect){
             CityFactory
                 .citySearch(weatherCtrl.citySelect)
                 .then(function(data) {
-                    vm.results= data;
+                    weatherCtrl.results= data;
                     console.log(data);
                 })
         }

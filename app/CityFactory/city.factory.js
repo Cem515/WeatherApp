@@ -9,7 +9,7 @@
     CityFactory.$inject = ['$http','$q'];
 
     function CityFactory($http,$q) {
-        let city = weatherCtrl.citySelect;
+        
         var service = {
             citySearch: citySearch,
 
@@ -25,8 +25,8 @@
                 method: "GET",
                 URL: 'api.openweathermap.org/data/2.5/weather?q=',
                 params: {
-                    appID: '781d827c6be36936f22443be9b8de70e',
-                    q = "" + city + "",
+                    appID: 'f5e578ae3ee7eb6403dd38660295e558',
+                    q:""+city+"",
                     units: 'imperial'
                 }
             }).then(function (response) {
