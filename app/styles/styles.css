@@ -1,9 +1,7 @@
 #recents{
-  float: right;
-
+  color:blueviolet;
 }
 
 #searched {
-
-  float:left;
+color: red;
 }

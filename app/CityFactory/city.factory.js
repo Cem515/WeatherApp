@@ -21,15 +21,9 @@
 
             var defer=$q.defer();
 
-             $http({
-                method: "GET",
-                URL: 'api.openweathermap.org/data/2.5/weather?q=',
-                params: {
-                    appID: 'f5e578ae3ee7eb6403dd38660295e558',
-                    q:""+city+"",
-                    units: 'imperial'
-                }
-            }).then(function (response) {
+            return $http.get('api.openweathermap.org/data/2.5/weather?'+city+'&APPID=f5e578ae3ee7eb6403dd38660295e558')
+
+            .then(function (response) {
 
                defer.resolve(response);
 
@@ -39,7 +33,6 @@
                 
             })
 
-            return defer.promise;
         }
     }
 })();
