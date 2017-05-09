@@ -23,14 +23,15 @@
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Enter City Name" ng-model="weatherCtrl.citySelect">
             <button type="submit" class="btn btn-primary" ng-click="weatherCtrl.citySearch(weatherCtrl.citySelect)">Find Weather</button>
+
         </form>
         </div>
       </div>
 
       <div class="btn-group">
-        <button type="button" class="btn btn-info">Recent City #1</button>
-        <button type="button" class="btn btn-info">Recent City #2</button>
-        <button type="button" class="btn btn-info">Recent City #3</button>
+        <button type="button" class="btn btn-info" ng-click="weatherCtrl.first()">{{weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length-2]}}</button>
+        <button type="button" class="btn btn-info" ng-click="weatherCtrl.second()">{{weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length-3]}}</button>
+        <button type="button" class="btn btn-info" ng-click="weatherCtrl.three()">{{weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length-4]}}</button>
       </div>
 
 
@@ -40,7 +41,9 @@
   <div class="panel-heading"></div>
   <h3 class="panel-title">Recent Searches</h3>
   <div class="panel-body">
-   "Recent Searches"
+   <ul>
+     <li class ="list" ng-repeat="searched in weatherCtrl.CitiesSeached| date:'medium'" ng-bind="::weatherCtrl.weather.Name"></li>
+     </ul>
   </div>
 </div>
 </div>
@@ -48,10 +51,16 @@
 <div= "searched">
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Current Weather</h3>
+    <h3 class="panel-title">Current Weather in {{weatherCtrl.weather.Name}}</h3>
   </div>
   <div class="panel-body">
-    "Details"
+    <p>Temperature: {{weatherCtrl.weather.Temperature}}</p>
+    <p>Humidity: {{weatherCtrl.weather.Humidity}}</p>
+    <p> High Temperature: {{weatherCtrl.weather.HighTemp}}</p>
+    <p>Low Temperature: {{weatherCtrl.weather.LowTemp}}</p>
+    <p>Pressure: {{weatherCtrl.weather.Pressure}}</p>
+    <p>Wind Speed: {{weatherCtrl.weather.WindSpeed}}mph</p>
+
   </div>
 </div>
 </div>
@@ -65,14 +74,9 @@
 
     <!-- inject:js -->
     <script src="/app/app.js"></script>
+    <!-- endinject -->
     <script src="/app/weather/weather.controller.js"></script>
     <script src="/app/CityFactory/city.factory.js"></script>
-    <!-- endinject -->
-
   </body>
 
 </html>
-
-<!--
-    <script src="/app/weather/weather.controller.js"></script>
-    <script src="/app/CityFactory/city.factory.js"></script>-->

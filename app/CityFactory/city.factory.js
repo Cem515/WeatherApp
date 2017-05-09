@@ -1,38 +1,28 @@
-
 (function () {
-    'use strict';
+        'use strict';
 
-    angular
-        .module('app')
-        .factory('CityFactory', CityFactory);
+        angular
+            .module('app')
+            .factory('CityFactory', CityFactory);
 
-    CityFactory.$inject = ['$http','$q'];
+        CityFactory.$inject = ['$http'];
+       
+        function CityFactory($http) {
+  
+            var service = {
+                citySearch: citySearch,
 
-    function CityFactory($http,$q) {
-        
-        var service = {
-            citySearch: citySearch,
+            };
 
-        };
+            return service;
 
-        return service;
+            function citySearch(term) {
 
-        function citySearch(city) {
+                return $http.get('http://api.openweathermap.org/data/2.5/weather?q=' + term + '&units=imperial&apikey=f5e578ae3ee7eb6403dd38660295e558')
+                    .then(function (response) {
+                            return response.data
+                        });
 
-            var defer=$q.defer();
-
-            return $http.get('api.openweathermap.org/data/2.5/weather?'+city+'&APPID=f5e578ae3ee7eb6403dd38660295e558')
-
-            .then(function (response) {
-
-               defer.resolve(response);
-
-            }, function (error) {
-
-                defer.reject(error);
-                
-            })
-
-        }
+            }
     }
 })();
