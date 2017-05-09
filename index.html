@@ -12,13 +12,14 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="/app/styles/styles.css">
   <!-- endinject -->
+  <link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
 </head>
 <div id="recents">
 
   <body ng-controller="WeatherController as weatherCtrl">
     <div class="container">
       <div class="jumbotron">
-        <h1> Current Weather</h1>
+        <h1 id="header"> Current Weather</h1>
         <form class="form-inline">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Enter City Name" ng-model="weatherCtrl.citySelect">
@@ -29,54 +30,53 @@
       </div>
 
       <div class="btn-group">
-        <button type="button" class="btn btn-info" ng-click="weatherCtrl.first()">{{weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length-2]}}</button>
-        <button type="button" class="btn btn-info" ng-click="weatherCtrl.second()">{{weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length-3]}}</button>
-        <button type="button" class="btn btn-info" ng-click="weatherCtrl.three()">{{weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length-4]}}</button>
+        <button type="button" class="btn btn-info" ng-click="weatherCtrl.citySearch(weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length - 2])">{{weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length-2]}}</button>
+        <button type="button" class="btn btn-info" ng-click="weatherCtrl.citySearch(weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length - 3])">{{weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length-3]}}</button>
+        <button type="button" class="btn btn-info" ng-click="weatherCtrl.citySearch(weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length - 4])">{{weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length-4]}}</button>
       </div>
 
-
+      <div="searched">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">Current Weather in {{weatherCtrl.weather.Name}}</h3>
+          </div>
+          <div class="panel-body">
+            <p>Temperature: {{weatherCtrl.weather.Temperature}}</p>
+            <p>Humidity: {{weatherCtrl.weather.Humidity}}</p>
+            <p> High Temperature: {{weatherCtrl.weather.HighTemp}}</p>
+            <p>Low Temperature: {{weatherCtrl.weather.LowTemp}}</p>
+            <p>Pressure: {{weatherCtrl.weather.Pressure}}</p>
+            <p>Wind Speed: {{weatherCtrl.weather.WindSpeed}}mph</p>
+          </div>
+        </div>
     </div>
-<div id= "recents">
-<div class="panel panel-default">
-  <div class="panel-heading"></div>
-  <h3 class="panel-title">Recent Searches</h3>
-  <div class="panel-body">
-   <ul>
-     <li class ="list" ng-repeat="searched in weatherCtrl.CitiesSeached| date:'medium'" ng-bind="::weatherCtrl.weather.Name"></li>
-     </ul>
-  </div>
-</div>
-</div>
+    <div id="recents">
+      <div class="panel panel-default">
+        <div class="panel-heading">Recent Searches</div>
+        <div class="panel-body">
+          <ul style="list-style: none" <li class="list" ng-repeat="searched in weatherCtrl.CitiesSeached" ng-bind="::weatherCtrl.weather.Name">
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-<div= "searched">
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title">Current Weather in {{weatherCtrl.weather.Name}}</h3>
-  </div>
-  <div class="panel-body">
-    <p>Temperature: {{weatherCtrl.weather.Temperature}}</p>
-    <p>Humidity: {{weatherCtrl.weather.Humidity}}</p>
-    <p> High Temperature: {{weatherCtrl.weather.HighTemp}}</p>
-    <p>Low Temperature: {{weatherCtrl.weather.LowTemp}}</p>
-    <p>Pressure: {{weatherCtrl.weather.Pressure}}</p>
-    <p>Wind Speed: {{weatherCtrl.weather.WindSpeed}}mph</p>
 
-  </div>
-</div>
+
 </div>
 
 
-    <!-- bower:js -->
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
-    <!-- endbower -->
+<!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<!-- endbower -->
 
-    <!-- inject:js -->
-    <script src="/app/app.js"></script>
-    <!-- endinject -->
-    <script src="/app/weather/weather.controller.js"></script>
-    <script src="/app/CityFactory/city.factory.js"></script>
-  </body>
+<!-- inject:js -->
+<script src="/app/app.js"></script>
+<!-- endinject -->
+<script src="/app/weather/weather.controller.js"></script>
+<script src="/app/CityFactory/city.factory.js"></script>
+</body>
 
 </html>

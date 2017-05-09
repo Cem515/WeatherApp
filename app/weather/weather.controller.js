@@ -7,66 +7,53 @@
 
     WeatherController.$inject = ['CityFactory', 'toastr'];
 
-    function WeatherController(CityFactory) {
-        /* jshint validthis:true */
+    function WeatherController(CityFactory, toastr) {
+
         var weatherCtrl = this;
         weatherCtrl.title = 'CityFactory';
         weatherCtrl.citySelect = "";
         weatherCtrl.CitiesSeached = [];
         let citySelect = weatherCtrl.citySelect;
 
+        function currentWeather(weather) {
+            weatherCtrl.weather = {
+                Name: weather.name,
+                Temperature: weather.main.temp,
+                Humidity: weather.main.humidity,
+                HighTemp: weather.main.temp_max,
+                LowTemp: weather.main.temp_min,
+                Pressure: weather.main.pressure,
+                WindSpeed: weather.wind.speed,
+            }
+            weatherCtrl.CitiesSeached.push(
+                weather.name
+            )
+        }
+
         weatherCtrl.citySearch = function (citySelect) {
             CityFactory
                 .citySearch(citySelect)
                 .then(function (data) {
-                    weatherCtrl.results = data;
-                    weatherCtrl.weather = {
-                        Name: weatherCtrl.results.name,
-                        Temperature: weatherCtrl.results.main.temp,
-                        Humidity: weatherCtrl.results.main.humidity,
-                        HighTemp: weatherCtrl.results.main.temp_max,
-                        LowTemp: weatherCtrl.results.main.temp_min,
-                        Pressure: weatherCtrl.results.main.pressure,
-                        WindSpeed: weatherCtrl.results.wind.speed,
-                    }
+                    let weather = data
+                    currentWeather(data);
+
                 });
+
             CityFactory
                 .citySearch(citySelect)
-                .then(function (data) {
-                    weatherCtrl.results = data
-                    weatherCtrl.CitiesSeached.push(
-                        weatherCtrl.results.name
-                    )
+                .then(function (response) {
 
-                    CityFactory
-                        .getCity()
-                        .then(function (response) {
-                            if (response.status == 200) {
-                                toastr.success("City Found");
-                            } else {
-                                toastr.error("City Not Found");
-                            }
-                        })
+                    if (response.status == 200) {
+                        toastr.success("City Found");
+                    } else {
+                        toastr.error("City Not Found");
+                    }
+                }, function (error) {
+                    toastr.error("Error: " + error.status.text);
 
-                });
-        }
-
-        weatherCtrl.first = function () {
-            weatherCtrl.citySearch(weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length - 2])
+                })
 
         };
-
-        weatherCtrl.second = function () {
-            weatherCtrl.citySearch(weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length - 3])
-
-        };
-
-        weatherCtrl.third = function () {
-            weatherCtrl.citySearch(weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length - 4])
-
-        };
-
-
 
     }
 })();
