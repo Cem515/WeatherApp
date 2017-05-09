@@ -19,6 +19,6 @@ font-family: 'Arima Madurai', cursive;
 
 body {
 background-image: url("clouds.jpg");
-
+  background-size: cover;
 
 }

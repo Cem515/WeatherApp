@@ -34,7 +34,6 @@
             CityFactory
                 .citySearch(citySelect)
                 .then(function (data) {
-                    let weather = data
                     currentWeather(data);
 
                 });
@@ -46,10 +45,8 @@
                     if (response.status == 200) {
                         toastr.success("City Found");
                     } else {
-                        toastr.error("City Not Found");
+                       toastr.error("Error: " + error.status.text);
                     }
-                }, function (error) {
-                    toastr.error("Error: " + error.status.text);
 
                 })
 

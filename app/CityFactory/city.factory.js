@@ -8,14 +8,10 @@
     CityFactory.$inject = ['$http', '$q'];
 
     function CityFactory($http, $q) {
-
         var service = {
             citySearch: citySearch,
-
         };
-
         return service;
-
         function citySearch(term) {
 
             var defer = $q.defer();
@@ -30,17 +26,10 @@
                     }
                 })
                 .then(function (response) {
-                        if (typeof response === 'object') {
-                            defer.resolve(response);
-                        } else {
-                            defer.reject(response);
-
-                        }
-                    },
-                    function (error) {
-                        defer.reject(error);
-                    });
-            return defer.promise
+                    return response
+                }, function (error) {
+                    return error;
+                })
         }
     }
 })();
