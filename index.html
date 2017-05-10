@@ -19,20 +19,19 @@
   <body ng-controller="WeatherController as weatherCtrl">
     <div class="container">
       <div class="jumbotron">
-        <h1 id="header"> Current Weather</h1>
+        <h1 id="header"> Current Weather </h1>
         <form class="form-inline">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Enter City Name" ng-model="weatherCtrl.citySelect">
             <button type="submit" class="btn btn-primary" ng-click="weatherCtrl.citySearch(weatherCtrl.citySelect)">Find Weather</button>
-
         </form>
         </div>
       </div>
 
       <div class="btn-group">
-        <button type="button" class="btn btn-info" ng-click="weatherCtrl.citySearch(weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length - 2])">{{weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length-2]}}</button>
-        <button type="button" class="btn btn-info" ng-click="weatherCtrl.citySearch(weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length - 3])">{{weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length-3]}}</button>
-        <button type="button" class="btn btn-info" ng-click="weatherCtrl.citySearch(weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length - 4])">{{weatherCtrl.CitiesSeached[weatherCtrl.CitiesSeached.length-4]}}</button>
+        <button type="button" class="btn btn-info" ng-click="weatherCtrl.citySearch(weatherCtrl.CitiesSearched[weatherCtrl.CitiesSearched.length - 2])">{{weatherCtrl.CitiesSearched[weatherCtrl.CitiesSearched.length-2]}}</button>
+        <button type="button" class="btn btn-info" ng-click="weatherCtrl.citySearch(weatherCtrl.CitiesSearched[weatherCtrl.CitiesSearched.length - 3])">{{weatherCtrl.CitiesSearched[weatherCtrl.CitiesSearched.length-3]}}</button>
+        <button type="button" class="btn btn-info" ng-click="weatherCtrl.citySearch(weatherCtrl.CitiesSearched[weatherCtrl.CitiesSearched.length - 4])">{{weatherCtrl.CitiesSearched[weatherCtrl.CitiesSearched.length-4]}}</button>
       </div>
 
       <div="searched">
@@ -41,10 +40,10 @@
             <h3 class="panel-title">Current Weather in {{weatherCtrl.weather.Name}}</h3>
           </div>
           <div class="panel-body">
-            <p>Temperature: {{weatherCtrl.weather.Temperature}}</p>
-            <p>Humidity: {{weatherCtrl.weather.Humidity}}</p>
-            <p> High Temperature: {{weatherCtrl.weather.HighTemp}}</p>
-            <p>Low Temperature: {{weatherCtrl.weather.LowTemp}}</p>
+            <p>Temperature: {{weatherCtrl.weather.Temperature}} degrees</p>
+            <p>Humidity: {{weatherCtrl.weather.Humidity}}%</p>
+            <p> High Temperature: {{weatherCtrl.weather.HighTemp}} degrees</p>
+            <p>Low Temperature: {{weatherCtrl.weather.LowTemp}} degrees</p>
             <p>Pressure: {{weatherCtrl.weather.Pressure}}</p>
             <p>Wind Speed: {{weatherCtrl.weather.WindSpeed}}mph</p>
           </div>
@@ -55,7 +54,8 @@
         <div class="panel-heading">Recent Searches</div>
         <div class="panel-body">
           <ul style="list-style: none">
-          <li class="list" ng-repeat="searched in weatherCtrl.CitiesSeached" ng-bind="::weatherCtrl.weather.Name">
+          <li class="list" ng-repeat="searched in weatherCtrl.CitiesSearched" ng-bind="::weatherCtrl.weather.Name">
+            {{}}
             </li>
           </ul>
         </div>

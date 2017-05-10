@@ -26,10 +26,12 @@
                     }
                 })
                 .then(function (response) {
-                    return response
+                    defer.resolve(response);
                 }, function (error) {
-                    return error;
+                   defer.reject (error);
                 })
+                return defer.promise;
         }
+        
     }
 })();

@@ -12,10 +12,14 @@
         var weatherCtrl = this;
         weatherCtrl.title = 'CityFactory';
         weatherCtrl.citySelect = "";
-        weatherCtrl.CitiesSeached = [];
+        weatherCtrl.CitiesSearched = [];
         let citySelect = weatherCtrl.citySelect;
 
+
+
         function currentWeather(weather) {
+            weatherCtrl.date =Date.now()
+
             weatherCtrl.weather = {
                 Name: weather.name,
                 Temperature: weather.main.temp,
@@ -25,7 +29,7 @@
                 Pressure: weather.main.pressure,
                 WindSpeed: weather.wind.speed,
             }
-            weatherCtrl.CitiesSeached.push(
+            weatherCtrl.CitiesSearched.push(
                 weather.name
             )
         }
@@ -33,23 +37,16 @@
         weatherCtrl.citySearch = function (citySelect) {
             CityFactory
                 .citySearch(citySelect)
-                .then(function (data) {
-                    currentWeather(data);
-
-                });
-
-            CityFactory
-                .citySearch(citySelect)
                 .then(function (response) {
-
                     if (response.status == 200) {
+                        currentWeather(response.data);
                         toastr.success("City Found");
                     } else {
-                       toastr.error("Error: " + error.status.text);
+                        toastr.info("There was a problem: " + error.status.text);
                     }
-
-                })
-
+                }, function (error) {
+                    toastr.error("Error: " + error.status.text);
+                });
         };
 
     }
