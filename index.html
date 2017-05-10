@@ -54,8 +54,8 @@
         <div class="panel-heading">Recent Searches</div>
         <div class="panel-body">
           <ul style="list-style: none">
-          <li class="list" ng-repeat="searched in weatherCtrl.CitiesSearched" ng-bind="::weatherCtrl.weather.Name">
-            {{}}
+          <li class="list" ng-repeat="searched in weatherCtrl.CitiesSearched" ng-bind-template="{{::weatherCtrl.weather.Name}} {{::weatherCtrl.date| date:'short'}}">
+        
             </li>
           </ul>
         </div>

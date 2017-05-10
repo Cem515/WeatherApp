@@ -14,11 +14,11 @@
         weatherCtrl.citySelect = "";
         weatherCtrl.CitiesSearched = [];
         let citySelect = weatherCtrl.citySelect;
-
+        weatherCtrl.date=Date.now();
 
 
         function currentWeather(weather) {
-            weatherCtrl.date =Date.now()
+     
 
             weatherCtrl.weather = {
                 Name: weather.name,
