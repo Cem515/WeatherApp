@@ -18,6 +18,7 @@
 
   <body ng-controller="WeatherController as weatherCtrl">
     <div class="container">
+      <!-- JumboHeader -->
       <div class="jumbotron">
         <h1 id="header"> Current Weather </h1>
         <form class="form-inline">
@@ -27,16 +28,17 @@
         </form>
         </div>
       </div>
-
+<!-- Populates Recent Searches/Buttons -->
       <div class="btn-group">
         <button type="button" class="btn btn-info" ng-click="weatherCtrl.citySearch(weatherCtrl.CitiesSearched[weatherCtrl.CitiesSearched.length - 2])">{{weatherCtrl.CitiesSearched[weatherCtrl.CitiesSearched.length-2]}}</button>
         <button type="button" class="btn btn-info" ng-click="weatherCtrl.citySearch(weatherCtrl.CitiesSearched[weatherCtrl.CitiesSearched.length - 3])">{{weatherCtrl.CitiesSearched[weatherCtrl.CitiesSearched.length-3]}}</button>
         <button type="button" class="btn btn-info" ng-click="weatherCtrl.citySearch(weatherCtrl.CitiesSearched[weatherCtrl.CitiesSearched.length - 4])">{{weatherCtrl.CitiesSearched[weatherCtrl.CitiesSearched.length-4]}}</button>
       </div>
-
+<!-- Outputs Weather Conditions -->
       <div="searched">
         <div class="panel panel-info">
           <div class="panel-heading">
+
             <h3 class="panel-title">Current Weather in {{weatherCtrl.weather.Name}}</h3>
           </div>
           <div class="panel-body">
@@ -49,6 +51,7 @@
           </div>
         </div>
     </div>
+    <!-- Recent Searches w/ Buggy Time Stamp -->
     <div id="recents">
       <div class="panel panel-default">
         <div class="panel-heading">Recent Searches</div>

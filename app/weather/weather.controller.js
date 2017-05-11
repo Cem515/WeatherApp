@@ -8,7 +8,7 @@
     WeatherController.$inject = ['CityFactory', 'toastr'];
 
     function WeatherController(CityFactory, toastr) {
-
+//Empty Variables
         var weatherCtrl = this;
         weatherCtrl.title = 'CityFactory';
         weatherCtrl.citySelect = "";
@@ -19,7 +19,7 @@
 
         function currentWeather(weather) {
      
-
+// Define data
             weatherCtrl.weather = {
                 Name: weather.name,
                 Temperature: weather.main.temp,
@@ -33,7 +33,7 @@
                 weather.name
             )
         }
-
+//Call to the API
         weatherCtrl.citySearch = function (citySelect) {
             CityFactory
                 .citySearch(citySelect)
